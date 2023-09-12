@@ -1,0 +1,42 @@
+#To automate the login process in Google chrome using python and selenium
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+# Replace these with your login credentials
+
+username = "your_username"
+password = "your_password"
+
+# Initialize the Chrome WebDriver
+
+driver = webdriver.Chrome()
+
+# Navigate to the website where you want to log in
+
+driver.get("https://example.com")  # Replace with the URL of the website
+
+# Find the username and password input fields by their HTML attributes (e.g., name, id, class)
+
+username_field = driver.find_element_by_name("username")  # Replace with the actual attribute
+password_field = driver.find_element_by_name("password")  # Replace with the actual attribute
+
+# Enter the username and password
+
+username_field.send_keys(username)
+password_field.send_keys(password)
+
+# Submit the login form (you may need to locate and click the login button)
+# For example, if there's a "Login" button, you can do:
+# login_button = driver.find_element_by_id("loginButton")  # Replace with the actual attribute
+# login_button.click()
+
+# Alternatively, you can submit the form using the Enter key
+
+password_field.send_keys(Keys.RETURN)
+
+# You can add a delay (e.g., time.sleep(2)) here to wait for any redirects or animations
+
+# Close the browser when you're done
+
+driver.quit()
